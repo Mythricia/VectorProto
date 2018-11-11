@@ -1,6 +1,6 @@
 # VectorProto
 Vector graphics, rope physics, tiny little spaceships, basic 2 or 4 player multiplayer, and a Moba map layout.
-Well, that's the plan anyway! Game prototype for [Day9's DK30 event](http://dk30.day9.tv/), for the November 13th to December 13th (Fall) session.
+Well, that's the plan anyway! Game prototype for [Day9's DK30 event](http://dk30.day9.tv/), for the November 13th to December 13th (Fall) session. [Project feed here](https://dk30.day9.tv/projects/342095521344913410-1541883495039?t=1541900694038).
 
 ------------
 
