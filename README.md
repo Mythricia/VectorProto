@@ -28,4 +28,4 @@ Obviously, that's the goal. This prototype should demonstrate how an actual game
 
 -----------------
 
-[**Prototype design document**](designdoc.md) is (Soon™) available for your perusal.
+[**Prototype design document**](designdoc.md) is available for your perusal.
