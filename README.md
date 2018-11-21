@@ -6,9 +6,8 @@ Well, that's the plan anyway! Game prototype for [Day9's DK30 event](http://dk30
 
 Goals for this prototype includes:
 
-## Find a way to create vector-like graphics.
-If you need a reminder, here's how modern psuedo-vector-graphics might look (Geometry Wars):
-![Geometry Wars](https://i.imgur.com/Ext1Ipnh.jpg?1)
+## Find a way to create attractive looking ~~vector-like~~ simple poly graphics.
+Originally this game envisioned vector-like graphics (think Geometry Wars), however I've decided that considering the game is actually using 3D graphics, an actual vector-like would certainly look unique, but probably not *good*. So I've decided to go with a very clean, minimalist low-poly style. Triangular shapes, flat surfaces, simple shading - easy to do and looks good!
 
 
 ## Create some cool rope/chain physics
