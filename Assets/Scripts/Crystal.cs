@@ -30,7 +30,7 @@ public class Crystal : MonoBehaviour
         state = GrowthState.Harvestable;
         growthProgress = growthTime;
 
-        endPosition = transform.localPosition;
+        endPosition = transform.position;
         startPosition = endPosition - (transform.forward * 1f);
     }
 
@@ -68,14 +68,14 @@ public class Crystal : MonoBehaviour
         {
             if (growthProgress >= growthTime)
             {
-                transform.localPosition = endPosition;
+                transform.position = endPosition;
                 growthProgress = growthTime;
                 state = GrowthState.Harvestable;
             }
             else
             {
                 Vector3 newPos = Vector3.Lerp(startPosition, endPosition, growthProgress / growthTime);
-                transform.localPosition = newPos;
+                transform.position = newPos;
                 growthProgress += Time.deltaTime;
             }
         }
@@ -88,7 +88,7 @@ public class Crystal : MonoBehaviour
     {
         state = GrowthState.Growing;
         growthProgress = 0f;
-        transform.localPosition = startPosition;
+        transform.position = startPosition;
     }
 
 
@@ -101,7 +101,7 @@ public class Crystal : MonoBehaviour
         {
             state = GrowthState.Dormant;
             growthProgress = 0;
-            transform.localPosition = startPosition;
+            transform.position = startPosition;
 
             return true;
         }
@@ -137,7 +137,7 @@ public class Crystal : MonoBehaviour
 
             case GrowthState.Harvestable:
                 growthProgress = growthTime;
-                transform.localPosition = endPosition;
+                transform.position = endPosition;
                 break;
 
             default:
