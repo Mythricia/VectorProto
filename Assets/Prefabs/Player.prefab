@@ -29,6 +29,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1176173711796222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4030298585031294}
+  m_Layer: 0
+  m_Name: Thruster2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1237541681643426
 GameObject:
   m_ObjectHideFlags: 1
@@ -72,10 +87,24 @@ GameObject:
   - component: {fileID: 114678140086016650}
   - component: {fileID: 54100830298871740}
   - component: {fileID: 114881719322532474}
-  - component: {fileID: 114915906615056420}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1922307523681518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4192871171390452}
+  m_Layer: 0
+  m_Name: Thruster1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +124,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4030298585031294
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1176173711796222}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4253417938882252}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4071296346161298
 Transform:
   m_ObjectHideFlags: 1
@@ -109,6 +151,19 @@ Transform:
   m_Father: {fileID: 4253417938882252}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4192871171390452
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922307523681518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0, z: -0.605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4253417938882252}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4253417938882252
 Transform:
   m_ObjectHideFlags: 1
@@ -120,6 +175,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4071296346161298}
+  - {fileID: 4192871171390452}
+  - {fileID: 4030298585031294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -255,9 +312,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918357566537116}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 2
   m_Drag: 5
-  m_AngularDrag: 10
+  m_AngularDrag: 6
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -289,8 +346,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enginePower: 5000
-  turnRate: 350
-  strafeFactor: 0.25
+  turnRate: 1800
+  strafeFactor: 0.5
+  thrustPoints:
+  - {fileID: 4192871171390452}
+  - {fileID: 4030298585031294}
+  fixedInertia: 1
 --- !u!114 &114881719322532474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,17 +364,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enginePlume: {fileID: 1237541681643426}
---- !u!114 &114915906615056420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918357566537116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4decebff6831417459cb89e1e7862842, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enginePower: 3500
-  turnRate: 300
-  strafeFactor: 0.5

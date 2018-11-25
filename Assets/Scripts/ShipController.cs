@@ -8,17 +8,19 @@ public class ShipController : MonoBehaviour {
 
 	public float enginePower = 3500;
 	public float turnRate = 300;
-
 	public float strafeFactor = 0.5f;
+
+	public bool isThrusting { get; private set; }
+	public Transform[] thrustPoints;
+
 	private Vector3 vel;
 	private float rotation;
 	private Rigidbody body;
 
-	public vec3 inertiaTensor;
+	// Fixes the Intertia Tensor so that child physics objects don't affect ship handling.
+	public bool fixedInertia = true;
 
-	public bool isThrusting { get; private set; }
 
-	public Transform[] thrustPoints;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +30,7 @@ public class ShipController : MonoBehaviour {
 
 		isThrusting = false;
 
-		body.inertiaTensor = inertiaTensor;
+		body.inertiaTensor = fixedInertia ? new vec3(1, 1, 1) : body.inertiaTensor;
 	}
 
 	// Update is called once per frame
