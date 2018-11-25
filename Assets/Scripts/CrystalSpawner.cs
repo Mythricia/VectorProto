@@ -56,7 +56,7 @@ public class CrystalSpawner : MonoBehaviour
 	{
 		foreach (Transform spawnPoint in spawnPoints)
 		{
-			Transform go = Instantiate(crystalPrefab, spawnPoint.transform);
+			Instantiate(crystalPrefab, spawnPoint.transform);
 			spawnPoint.gameObject.AddComponent<Crystal>();
 		}
 	}
