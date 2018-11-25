@@ -65,7 +65,7 @@ public class ShipController : MonoBehaviour {
 			body.AddForceAtPosition((body.transform.forward * vel.z * force) / thrustPoints.Length, tp.position);
 		}
 
-		body.AddRelativeForce(vel.x * force, 0, 0);
+		body.AddRelativeForce(vel.x * force * strafeFactor, 0, 0);
 		body.AddRelativeTorque(0, torque, 0);
 	}
 }
