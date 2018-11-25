@@ -14,7 +14,7 @@ public class ShipVisualsController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float mainThruster = Input.GetAxisRaw("Vertical");
+		float mainThruster = Input.GetAxisRaw("Thrust");
 		// float strafeThruster = Input.GetAxisRaw("Strafe");
 		// float rotateThruster = Input.GetAxisRaw("Rotation");
 
