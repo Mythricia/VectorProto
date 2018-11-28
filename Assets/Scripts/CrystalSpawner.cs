@@ -43,7 +43,7 @@ public class CrystalSpawner : MonoBehaviour
         }
         else
         {
-            string s = string.Format("CrystalSpawner:: Spawned {0}", crystals.Length);
+            string s = string.Format("CrystalSpawner:: Spawned {0} crystals", crystals.Length);
             print(s);
         }
     }
@@ -85,7 +85,7 @@ public class CrystalSpawner : MonoBehaviour
                 if (Time.time - c.lastHarvestTime >= respawnTime)
                 {
                     c.SetState(Crystal.GrowthState.Growing);
-                    print("Starting regrowth or crystal " + c.name);
+                    print(this.name + " starting regrowth of crystal " + c.name);
                 }
             }
         }
