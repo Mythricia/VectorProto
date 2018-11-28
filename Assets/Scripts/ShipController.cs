@@ -123,7 +123,7 @@ public class ShipController : MonoBehaviour
     {
         GameObject.Destroy(activeProjectile.gameObject);
         grappleInFlight = false;
-        if(!isDragging) line.enabled = false;
+        if (!isDragging) line.enabled = false;
     }
 
 
@@ -160,11 +160,20 @@ public class ShipController : MonoBehaviour
 
 
 
-    void ConnectDraggable(GameObject dragObject)
+    bool ConnectDraggable(GameObject dragObject)
     {
-        attachedDraggable = dragObject;
-        InitializeJoint(dragObject.GetComponent<Rigidbody>());
-        isDragging = true;
+        bool success = false;
+        Transform other = dragObject.GetComponent<Draggable>().GetDraggable();
+
+        if (other)
+        {
+            InitializeJoint(other.GetComponent<Rigidbody>());
+            attachedDraggable = other.gameObject;
+            isDragging = true;
+            success = true;
+        }
+
+        return success;
     }
 
 

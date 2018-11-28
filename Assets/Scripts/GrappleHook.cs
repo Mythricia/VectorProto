@@ -15,7 +15,7 @@ public class GrappleHook : MonoBehaviour {
 	public void AttachPlayer(ShipController player)
 	{
 		attachedPlayer = player;
-		print("GrappleHook:: I'm attached to player '" + player + "'");
+		print("GrappleHook:: I'm attached to player '" + player.gameObject.name + "'");
 	}
 
 	void OnDestroy()
@@ -25,7 +25,7 @@ public class GrappleHook : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		print("GrappleHook:: Hit draggable object: " + other.gameObject);
+		print("GrappleHook:: Hit draggable object: " + other.gameObject.name);
 		attachedPlayer.HitDraggable(other.gameObject);
 	}
 }

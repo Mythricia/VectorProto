@@ -26,6 +26,8 @@ public class Crystal : MonoBehaviour
     float growthTime = 15f;
     float growthProgress = 0;
 
+    Collider thisCollider;
+
     // Use this for initialization
     void Start()
     {
@@ -36,6 +38,8 @@ public class Crystal : MonoBehaviour
         startPosition = endPosition - (transform.forward * 1f);
 
         lastHarvestTime = Time.time;
+
+        thisCollider = GetComponentInChildren<MeshCollider>();
     }
 
     // Update is called once per frame
@@ -48,6 +52,7 @@ public class Crystal : MonoBehaviour
                 transform.position = endPosition;
                 growthProgress = growthTime;
                 state = GrowthState.Harvestable;
+                thisCollider.enabled = true;
             }
             else
             {
@@ -76,6 +81,7 @@ public class Crystal : MonoBehaviour
     {
         if (state == GrowthState.Harvestable)
         {
+            thisCollider.enabled = false;
             state = GrowthState.Dormant;
             growthProgress = 0;
             transform.position = startPosition;
