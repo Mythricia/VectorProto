@@ -11,12 +11,14 @@ public class Crystal : MonoBehaviour
         Harvestable
     }
 
-    public GrowthState State;
+    GrowthState State;
     public GrowthState state
     {
         get { return State; }
         protected set { State = value; }
     }
+
+    public float lastHarvestTime;
 
     Vector3 startPosition;
     Vector3 endPosition;
@@ -32,6 +34,8 @@ public class Crystal : MonoBehaviour
 
         endPosition = transform.position;
         startPosition = endPosition - (transform.forward * 1f);
+
+        lastHarvestTime = Time.time;
     }
 
     // Update is called once per frame
@@ -75,6 +79,8 @@ public class Crystal : MonoBehaviour
             state = GrowthState.Dormant;
             growthProgress = 0;
             transform.position = startPosition;
+
+            lastHarvestTime = Time.time;
 
             return true;
         }

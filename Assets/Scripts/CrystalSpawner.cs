@@ -9,6 +9,9 @@ public class CrystalSpawner : MonoBehaviour
 
     public Crystal[] crystals;
 
+    public float respawnTime = 15f;
+    public float growthTime = 15f;
+
     // Use this for initialization
     void Start()
     {
@@ -73,6 +76,19 @@ public class CrystalSpawner : MonoBehaviour
             foreach (Crystal c in crystals) c.Harvest();
             print("Harvested");
         }
+
+
+        foreach (Crystal c in crystals)
+        {
+            if(c.state == Crystal.GrowthState.Dormant)
+            {
+                if (Time.time - c.lastHarvestTime >= respawnTime)
+                {
+                    c.SetState(Crystal.GrowthState.Growing);
+                    print("Starting regrowth or crystal " + c.name);
+                }
+            }
+        }
     }
 
 
@@ -81,7 +97,8 @@ public class CrystalSpawner : MonoBehaviour
         foreach (Transform spawnPoint in spawnPoints)
         {
             Instantiate(crystalPrefab, spawnPoint.transform);
-            spawnPoint.gameObject.AddComponent<Crystal>();
+            Crystal c = spawnPoint.gameObject.AddComponent<Crystal>();
+            c.SetGrowthTime(growthTime);
         }
     }
 }
