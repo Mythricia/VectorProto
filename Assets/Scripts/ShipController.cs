@@ -39,7 +39,7 @@ public class ShipController : MonoBehaviour
 
     private ConfigurableJoint joint;
 
-	private LineRenderer line;
+    private LineRenderer line;
 
 
 
@@ -53,8 +53,8 @@ public class ShipController : MonoBehaviour
         isThrusting = false;
 
         body.inertiaTensor = fixedInertia ? new vec3(1, 1, 1) : body.inertiaTensor;
-		line = GetComponent<LineRenderer>();
-		line.enabled = false;
+        line = GetComponent<LineRenderer>();
+        line.enabled = false;
     }
 
     // Update is called once per frame
@@ -81,7 +81,7 @@ public class ShipController : MonoBehaviour
         if (Input.GetKeyDown("f") && !grappleInFlight)
         {
             grappleInFlight = true;
-			line.enabled = true;
+            line.enabled = true;
 
             activeProjectile = Instantiate(grappleProjectile, launchPoint.position, launchPoint.rotation);
             activeProjectile.GetComponent<GrappleHook>().AttachPlayer(this);
@@ -92,10 +92,10 @@ public class ShipController : MonoBehaviour
             rb.AddRelativeForce(grappleVel, ForceMode.VelocityChange);
         }
 
-		if (Input.GetKeyDown("g") && isDragging)
-		{
-			DisconnectDraggable();
-		}
+        if (Input.GetKeyDown("g") && isDragging)
+        {
+            DisconnectDraggable();
+        }
 
         if (grappleInFlight && activeProjectile != null)
         {
@@ -104,26 +104,26 @@ public class ShipController : MonoBehaviour
             {
                 DestroyGrapple();
             }
-			else
-			{
-				Vector3[] segments = new Vector3[] {attachmentPoint.position, activeProjectile.transform.position};
-				line.SetPositions(segments);
-			}
+            else
+            {
+                Vector3[] segments = new Vector3[] { attachmentPoint.position, activeProjectile.transform.position };
+                line.SetPositions(segments);
+            }
         }
 
 
-		if (isDragging)
-		{
-			Vector3[] segments = new Vector3[] {attachmentPoint.position, attachedDraggable.transform.position};
-			line.SetPositions(segments);
-		}
+        if (isDragging)
+        {
+            Vector3[] segments = new Vector3[] { attachmentPoint.position, attachedDraggable.transform.position };
+            line.SetPositions(segments);
+        }
     }
 
     void DestroyGrapple()
     {
         GameObject.Destroy(activeProjectile.gameObject);
         grappleInFlight = false;
-		line.enabled = false;
+        if(!isDragging) line.enabled = false;
     }
 
 
@@ -133,18 +133,12 @@ public class ShipController : MonoBehaviour
 
         if (!isDragging)
         {
-
-            attachedDraggable = dragObject;
-            InitializeJoint(dragObject.GetComponent<Rigidbody>());
-            isDragging = true;
+            ConnectDraggable(dragObject);
         }
         else // We're already dragging something
         {
-			DisconnectDraggable();
-
-			attachedDraggable = dragObject;
-			InitializeJoint(dragObject.GetComponent<Rigidbody>());
-			isDragging = true;
+            DisconnectDraggable();
+            ConnectDraggable(dragObject);
         }
     }
 
@@ -161,14 +155,23 @@ public class ShipController : MonoBehaviour
             Destroy(this.GetComponent<ConfigurableJoint>());
         }
 
-		line.enabled = false;
+        line.enabled = false;
+    }
+
+
+
+    void ConnectDraggable(GameObject dragObject)
+    {
+        attachedDraggable = dragObject;
+        InitializeJoint(dragObject.GetComponent<Rigidbody>());
+        isDragging = true;
     }
 
 
     void InitializeJoint(Rigidbody rb)
     {
         joint = gameObject.AddComponent<ConfigurableJoint>();
-		line.enabled = true;
+        line.enabled = true;
 
         joint.connectedBody = rb;
         joint.autoConfigureConnectedAnchor = false;
