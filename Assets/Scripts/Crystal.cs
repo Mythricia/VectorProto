@@ -37,33 +37,6 @@ public class Crystal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("t"))
-        {
-            SetState(GrowthState.Dormant);
-            print("Dormant");
-        }
-        else if (Input.GetKeyDown("y"))
-        {
-            SetState(GrowthState.Growing);
-            print("Growing");
-        }
-        else if (Input.GetKeyDown("u"))
-        {
-            SetState(GrowthState.Harvestable);
-            print("Harvestable");
-        }
-        else if (Input.GetKeyDown("r"))
-        {
-            Respawn();
-            print("Respawning");
-        }
-        else if (Input.GetKeyDown("h"))
-        {
-            Harvest();
-            print("Harvested");
-        }
-
-
         if (state == GrowthState.Growing)
         {
             if (growthProgress >= growthTime)
