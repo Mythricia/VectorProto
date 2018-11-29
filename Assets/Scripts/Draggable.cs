@@ -88,7 +88,7 @@ public class Draggable : MonoBehaviour
     }
 }
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(Draggable))]
 public class DraggableEditor : Editor
 {
@@ -119,3 +119,4 @@ public class DraggableEditor : Editor
         this.serializedObject.ApplyModifiedProperties();
     }
 }
+#endif
