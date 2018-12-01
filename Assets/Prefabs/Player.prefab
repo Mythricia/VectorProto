@@ -417,7 +417,7 @@ MonoBehaviour:
   launchPoint: {fileID: 4972437782740072}
   grappleRange: 15
   grappleSpeed: 10
-  grappleTowDesiredDistance: 3
+  grappleTowDesiredDistance: 4
   grappleSpringStrength: 30
 --- !u!114 &114881719322532474
 MonoBehaviour:
