@@ -22,7 +22,7 @@ public class ShipController : MonoBehaviour
     public Transform launchPoint;
     public float grappleRange = 15f;
     public float grappleSpeed = 10f;
-    public float grappleTowDesiredDistance = 3f;
+    public float grappleTowDesiredDistance = 4f;
     public float grappleSpringStrength = 30f;   // 10 is unity default Spring power for SpringJoint
 
 
@@ -183,27 +183,29 @@ public class ShipController : MonoBehaviour
         line.enabled = true;
 
         joint.connectedBody = rb;
-        joint.autoConfigureConnectedAnchor = false;
+
         joint.enableCollision = true;
-        joint.anchor = vec3.zero;
+        joint.autoConfigureConnectedAnchor = false;
+
+        joint.anchor = attachmentPoint.localPosition;
+        joint.connectedAnchor = new vec3(0, 0, -0.5f);
+
         joint.axis = vec3.zero;
-        joint.connectedAnchor = vec3.forward * grappleTowDesiredDistance;
         joint.secondaryAxis = vec3.zero;
+
         joint.xMotion = ConfigurableJointMotion.Limited;
-        joint.yMotion = ConfigurableJointMotion.Locked;
+        joint.yMotion = ConfigurableJointMotion.Limited;
         joint.zMotion = ConfigurableJointMotion.Limited;
 
         SoftJointLimit linLim = joint.linearLimit;
         linLim.limit = grappleTowDesiredDistance;
-        linLim.bounciness = 1f;
+        linLim.bounciness = 0f;
         joint.linearLimit = linLim;
 
         SoftJointLimitSpring limSpring = joint.linearLimitSpring;
         limSpring.spring = grappleSpringStrength;
         limSpring.damper = 5;
         joint.linearLimitSpring = limSpring;
-
-        joint.enableCollision = true;
     }
 
     void FixedUpdate()
