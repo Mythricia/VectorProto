@@ -1,6 +1,11 @@
+
+![](https://thumbs.gfycat.com/FinishedPowerfulBluefish-size_restricted.gif)
+[Higher Quality](https://gfycat.com/FinishedPowerfulBluefish)
+
+
 # VectorProto
 Vector graphics, rope physics, tiny little spaceships, basic 2 or 4 player multiplayer, and a Moba map layout.
-Well, that's the plan anyway! Game prototype for [Day9's DK30 event](http://dk30.day9.tv/), for the November 13th to December 13th (Fall) session. [Project feed here](https://dk30.day9.tv/projects/342095521344913410-1541883495039?t=1541900694038).
+Well, that was the plan anyway! Game prototype for [Day9's DK30 event](http://dk30.day9.tv/), for the November 13th to December 13th (Fall) session. [Project feed here](https://dk30.day9.tv/projects/342095521344913410-1541883495039?t=1541900694038).
 
 ------------
 
@@ -14,7 +19,6 @@ Originally this game envisioned vector-like graphics (think Geometry Wars), howe
 I've done this before in Love2D (Box2D physics):
 
 ![Rope Physics](https://thumbs.gfycat.com/SecretInsistentAnkole-size_restricted.gif)
-
 (Better video: [Rope Physics](https://gfycat.com/SecretInsistentAnkole))
 
 ## Get some basic network multiplayer working
