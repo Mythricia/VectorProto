@@ -1,5 +1,6 @@
 
 ![](https://thumbs.gfycat.com/FinishedPowerfulBluefish-size_restricted.gif)
+
 [Higher Quality](https://gfycat.com/FinishedPowerfulBluefish)
 
 
@@ -19,6 +20,7 @@ Originally this game envisioned vector-like graphics (think Geometry Wars), howe
 I've done this before in Love2D (Box2D physics):
 
 ![Rope Physics](https://thumbs.gfycat.com/SecretInsistentAnkole-size_restricted.gif)
+
 (Better video: [Rope Physics](https://gfycat.com/SecretInsistentAnkole))
 
 ## Get some basic network multiplayer working
