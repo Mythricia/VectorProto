@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using vec3 = UnityEngine.Vector3;	//FIXME: This should be in a global game namespace instead
 
 public class ShipController : MonoBehaviour
 {
@@ -52,7 +51,7 @@ public class ShipController : MonoBehaviour
 
         isThrusting = false;
 
-        body.inertiaTensor = fixedInertia ? new vec3(1, 1, 1) : body.inertiaTensor;
+        body.inertiaTensor = fixedInertia ? new Vector3(1, 1, 1) : body.inertiaTensor;
         line = GetComponent<LineRenderer>();
         line.enabled = false;
     }
@@ -188,10 +187,10 @@ public class ShipController : MonoBehaviour
         joint.autoConfigureConnectedAnchor = false;
 
         joint.anchor = attachmentPoint.localPosition;
-        joint.connectedAnchor = new vec3(0, 0, -0.5f);
+        joint.connectedAnchor = new Vector3(0, 0, -0.5f);
 
-        joint.axis = vec3.zero;
-        joint.secondaryAxis = vec3.zero;
+        joint.axis = Vector3.zero;
+        joint.secondaryAxis = Vector3.zero;
 
         joint.xMotion = ConfigurableJointMotion.Limited;
         joint.yMotion = ConfigurableJointMotion.Limited;
