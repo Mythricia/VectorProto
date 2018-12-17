@@ -34,6 +34,11 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# Lighting data
+*LightingData*
+*Lightmap*
+*ReflectionProbe*
+
 ============
 OS generated
 ============
